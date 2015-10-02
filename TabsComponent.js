@@ -1,5 +1,5 @@
-"use-strict";
 (function (Ractive) {
+    "use strict";
 
     var TabsComponent = Ractive.extend({
         template: '{{>content}}',
@@ -11,7 +11,7 @@
             this.on('TabsLink.clicked', function (event) {
                 this.findAllComponents('TabsPane')
                     .map(function (pane) {
-                        pane.set('active', (pane.data.id === event.context.target));
+                        pane.set('active', (pane.get('id') === event.context.target));
                     });
             });
         }
